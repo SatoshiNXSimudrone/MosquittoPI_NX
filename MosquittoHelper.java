@@ -28,7 +28,7 @@ public class MosquittoHelper {
               p= rt.exec("mosquitto_pub -h "+this.address+" -t "+this.topic+" -m message:"+"_"+getTime());
               
  	        try{
-	            Thread.sleep(3000);
+	            Thread.sleep(1000);
 	           } 
 	           catch(InterruptedException ex) {
 	            Thread.currentThread().interrupt();
@@ -58,7 +58,7 @@ public class MosquittoHelper {
         
 	        try {
 				// 3 seconds interval between each publish
-	            Thread.sleep(3000);
+	            Thread.sleep(1000);
 	           } 
 	           catch(InterruptedException ex) {
 	            Thread.currentThread().interrupt();
@@ -73,7 +73,7 @@ public class MosquittoHelper {
           int len = helper.size();
           Process p= rt.exec("clear");
           while ( i< len){
-              helper.get(i).publishTopic(getMessages());
+              helper.get(i).publishTopic(helper.get(i).getMessages());
 	        i++;
 	      }
      }
